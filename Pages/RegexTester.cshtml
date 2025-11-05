@@ -1,0 +1,81 @@
+@page
+@model RegexTesterModel
+@{
+    ViewData["Title"] = "Regex Tester";
+}
+
+<div class="container-fluid">
+    <h1 class="text-center mb-4">Regex Tester & Extractor</h1>
+    
+    <div class="row mb-3">
+        <div class="col-md-6">
+            <label for="regexPattern" class="form-label"><strong>Regular Expression</strong></label>
+            <div class="input-group mb-2">
+                <span class="input-group-text">/</span>
+                <input type="text" id="regexPattern" class="form-control" placeholder="Enter regex pattern..." oninput="testRegex()">
+                <span class="input-group-text">/</span>
+                <input type="text" id="regexFlags" class="form-control" placeholder="flags" style="max-width: 80px;" value="g" oninput="testRegex()">
+            </div>
+            <div class="mb-2">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="flagGlobal" checked onchange="updateFlags()">
+                    <label class="form-check-label" for="flagGlobal">Global (g)</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="flagIgnoreCase" onchange="updateFlags()">
+                    <label class="form-check-label" for="flagIgnoreCase">Ignore Case (i)</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="flagMultiline" onchange="updateFlags()">
+                    <label class="form-check-label" for="flagMultiline">Multiline (m)</label>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <label for="testString" class="form-label"><strong>Test String</strong></label>
+            <textarea id="testString" class="form-control regex-textarea" rows="8" placeholder="Enter text to test against..." oninput="testRegex()"></textarea>
+        </div>
+    </div>
+    
+    <div class="row mb-3">
+        <div class="col-12">
+            <h4>Results</h4>
+            <div id="regexResults" class="regex-results">
+                <p class="text-muted">Enter a regex pattern and test string to see results.</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row mb-3">
+        <div class="col-md-6">
+            <h4>Matches</h4>
+            <textarea id="matchesOutput" class="form-control regex-textarea" rows="6" readonly placeholder="Matches will appear here..."></textarea>
+            <div class="text-center mt-2">
+                <button type="button" class="btn btn-outline-secondary btn-sm" onclick="copyMatches()">Copy Matches</button>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <h4>Groups</h4>
+            <textarea id="groupsOutput" class="form-control regex-textarea" rows="6" readonly placeholder="Capture groups will appear here..."></textarea>
+            <div class="text-center mt-2">
+                <button type="button" class="btn btn-outline-secondary btn-sm" onclick="copyGroups()">Copy Groups</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-12">
+            <h4>Quick Patterns</h4>
+            <div class="quick-patterns">
+                <button class="btn btn-outline-primary btn-sm" onclick="setEmailPattern()">Email</button>
+                <button class="btn btn-outline-primary btn-sm" onclick="setPattern('^\\d{3}-\\d{3}-\\d{4}$')">Phone (US)</button>
+                <button class="btn btn-outline-primary btn-sm" onclick="setPattern('^https?:\\/\\/.+')">URL</button>
+                <button class="btn btn-outline-primary btn-sm" onclick="setPattern('^\\d{4}-\\d{2}-\\d{2}$')">Date (YYYY-MM-DD)</button>
+                <button class="btn btn-outline-primary btn-sm" onclick="setPattern('\\b\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\b')">IP Address</button>
+                <button class="btn btn-outline-primary btn-sm" onclick="setHexPattern()">Hex Color</button>
+            </div>
+        </div>
+    </div>
+    
+    <div id="regexStatus" class="alert mt-3" style="display: none;"></div>
+</div>

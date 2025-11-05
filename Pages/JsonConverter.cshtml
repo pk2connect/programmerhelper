@@ -1,0 +1,29 @@
+@page
+@model JsonConverterModel
+@{
+    ViewData["Title"] = "JSON Converter";
+}
+
+<div class="container-fluid">
+    <h1 class="text-center mb-4">JSON Converter Tool</h1>
+    
+    <div class="row mb-3">
+        <div class="col-md-6">
+            <label for="inputJson" class="form-label"><strong>Input JSON</strong></label>
+            <textarea id="inputJson" class="form-control json-textarea" rows="20" placeholder="Paste your JSON here..."></textarea>
+        </div>
+        <div class="col-md-6">
+            <label for="outputJson" class="form-label"><strong>Formatted JSON</strong></label>
+            <textarea id="outputJson" class="form-control json-textarea" rows="20" readonly placeholder="Formatted JSON will appear here..."></textarea>
+        </div>
+    </div>
+    
+    <div class="text-center mb-3">
+        <button type="button" class="btn btn-primary" onclick="formatJson()">Format JSON</button>
+        <button type="button" class="btn btn-secondary" onclick="minifyJson()">Minify JSON</button>
+        <button type="button" class="btn btn-info" onclick="validateJson()">Validate JSON</button>
+        <button type="button" class="btn btn-warning" onclick="clearJsonFields()">Clear All</button>
+    </div>
+    
+    <div id="jsonStatus" class="alert" style="display: none;"></div>
+</div>

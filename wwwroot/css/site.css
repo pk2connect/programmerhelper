@@ -1,0 +1,563 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+/* Text Comparison Styles */
+.comparison-panel {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 15px;
+    background-color: #f8f9fa;
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    line-height: 1.4;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.added {
+    background-color: #d4edda;
+    color: #155724;
+    text-decoration: none;
+}
+
+.removed {
+    background-color: #f8d7da;
+    color: #721c24;
+    text-decoration: line-through;
+}
+
+.unchanged {
+    color: #6c757d;
+}
+
+.line-number {
+    display: inline-block;
+    width: 40px;
+    color: #999;
+    text-align: right;
+    margin-right: 10px;
+    border-right: 1px solid #ddd;
+    padding-right: 5px;
+}
+
+.diff-line {
+    display: block;
+    padding: 2px 0;
+}
+
+.highlight-changes {
+    background-color: #fff3cd;
+    border-left: 4px solid #ffc107;
+    padding-left: 8px;
+}
+
+/* JSON Converter Styles */
+.json-textarea {
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    line-height: 1.4;
+    white-space: pre;
+    word-wrap: break-word;
+}
+
+.json-textarea:focus {
+    border-color: #258cfb;
+    box-shadow: 0 0 0 0.2rem rgba(37, 140, 251, 0.25);
+}
+
+/* UUID Generator Styles */
+.uuid-input {
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+}
+
+.uuid-textarea {
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* Hash Converter Styles */
+.hash-textarea {
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    line-height: 1.4;
+    resize: vertical;
+}
+
+/* Code Formatter Styles */
+.code-textarea {
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    line-height: 1.4;
+    resize: vertical;
+    white-space: pre;
+    word-wrap: break-word;
+}
+
+/* Color Palette Styles */
+.color-palette {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.color-swatch {
+    width: 80px;
+    height: 80px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    border: 2px solid #ddd;
+    transition: transform 0.2s;
+    position: relative;
+}
+
+.color-swatch:hover {
+    transform: scale(1.05);
+    border-color: #333;
+}
+
+.color-swatch.small {
+    width: 40px;
+    height: 40px;
+}
+
+.color-code {
+    background: rgba(0,0,0,0.7);
+    color: white;
+    padding: 2px 4px;
+    font-size: 10px;
+    border-radius: 3px;
+    margin-bottom: 4px;
+}
+
+.color-info {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #dee2e6;
+}
+
+.saved-colors {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.saved-color-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px;
+    background: #f8f9fa;
+    border-radius: 6px;
+    border: 1px solid #dee2e6;
+}
+
+.color-text {
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    min-width: 70px;
+}
+
+/* API Mock Generator Styles */
+.api-textarea {
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    line-height: 1.4;
+    resize: vertical;
+    white-space: pre;
+    word-wrap: break-word;
+}
+
+/* Regex Tester Styles */
+.regex-textarea {
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    line-height: 1.4;
+    resize: vertical;
+}
+
+.regex-results {
+    border: 1px solid #dee2e6;
+    border-radius: 6px;
+    padding: 15px;
+    background-color: #f8f9fa;
+    min-height: 100px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.highlighted-text {
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    word-break: break-all;
+}
+
+.highlighted-text mark {
+    background-color: #ffeb3b;
+    padding: 2px 4px;
+    border-radius: 3px;
+    font-weight: bold;
+}
+
+.quick-patterns {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+.quick-patterns .btn {
+    font-size: 12px;
+}
+
+/* QR Generator Styles */
+.qr-textarea {
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    line-height: 1.4;
+    resize: vertical;
+}
+
+.qr-container {
+    border: 1px solid #dee2e6;
+    border-radius: 6px;
+    padding: 20px;
+    background-color: #f8f9fa;
+    text-align: center;
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.qr-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.qr-templates {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+.qr-templates .btn {
+    font-size: 12px;
+}
+
+/* JWT Decoder Styles */
+.jwt-textarea {
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    line-height: 1.4;
+    resize: vertical;
+}
+
+.jwt-status {
+    text-align: center;
+}
+
+.jwt-info {
+    border: 1px solid #dee2e6;
+    border-radius: 6px;
+    padding: 15px;
+    background-color: #f8f9fa;
+    min-height: 150px;
+}
+
+.jwt-summary p {
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.token-details {
+    border: 1px solid #dee2e6;
+    border-radius: 6px;
+    padding: 15px;
+    background-color: #f8f9fa;
+}
+
+.token-details .col-md-4 {
+    margin-bottom: 15px;
+}
+
+/* DateTime Converter Styles */
+.datetime-textarea {
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    line-height: 1.4;
+    resize: vertical;
+}
+
+.current-time-panel {
+    border: 1px solid #dee2e6;
+    border-radius: 6px;
+    padding: 20px;
+    background-color: #f8f9fa;
+}
+
+.time-display {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.time-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: white;
+    border-radius: 4px;
+    border: 1px solid #e9ecef;
+}
+
+.time-item label {
+    font-weight: bold;
+    margin: 0;
+}
+
+.time-value {
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    color: #495057;
+}
+
+.conversion-results {
+    border: 1px solid #dee2e6;
+    border-radius: 6px;
+    padding: 15px;
+    background-color: #f8f9fa;
+    min-height: 120px;
+}
+
+.conversion-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.conversion-item:last-child {
+    border-bottom: none;
+}
+
+.conversion-item label {
+    font-weight: bold;
+    margin: 0;
+}
+
+.conversion-item span {
+    font-family: 'Courier New', monospace;
+    font-size: 13px;
+    color: #495057;
+}
+
+.quick-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+.quick-actions .btn {
+    font-size: 12px;
+}
+
+/* Dependency Graph Styles */
+.dependency-textarea {
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    line-height: 1.4;
+    resize: vertical;
+}
+
+.graph-container {
+    border: 1px solid #dee2e6;
+    border-radius: 6px;
+    background-color: #f8f9fa;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.graph-container svg {
+    background-color: white;
+    border-radius: 4px;
+}
+
+.graph-stats {
+    border: 1px solid #dee2e6;
+    border-radius: 6px;
+    padding: 15px;
+    background-color: #f8f9fa;
+}
+
+.stat-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: white;
+    border-radius: 4px;
+    border: 1px solid #e9ecef;
+}
+
+.stat-item label {
+    font-weight: bold;
+    margin: 0;
+}
+
+.stat-item span {
+    font-family: 'Courier New', monospace;
+    font-size: 16px;
+    color: #495057;
+    font-weight: bold;
+}
+
+/* CodeMate Branding */
+:root {
+    --primary-color: #2563eb;
+    --secondary-color: #10b981;
+    --accent-color: #f59e0b;
+    --dark-color: #1e293b;
+    --light-color: #f8fafc;
+}
+
+.navbar-brand {
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.brand-text {
+    background: linear-gradient(135deg, #ffffff 0%, #e2e8f0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 700;
+}
+
+.logo-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+    color: #ffffff;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+}
+
+.bg-primary {
+    background: linear-gradient(135deg, var(--primary-color) 0%, #1d4ed8 100%) !important;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary-color) 0%, #1d4ed8 100%);
+    border: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.btn-success {
+    background: linear-gradient(135deg, var(--secondary-color) 0%, #059669 100%);
+    border: none;
+    font-weight: 500;
+}
+
+.btn-success:hover {
+    background: linear-gradient(135deg, #059669 0%, #047857 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+.btn-warning {
+    background: linear-gradient(135deg, var(--accent-color) 0%, #d97706 100%);
+    border: none;
+    font-weight: 500;
+    color: white;
+}
+
+.btn-warning:hover {
+    background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+    color: white;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--dark-color);
+    font-weight: 600;
+}
+
+.container-fluid h1 {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 700;
+    margin-bottom: 2rem;
+}
+
+.footer {
+    background: linear-gradient(135deg, var(--dark-color) 0%, #334155 100%);
+    color: #e2e8f0;
+}
+
+.footer a {
+    color: var(--secondary-color);
+    text-decoration: none;
+}
+
+.footer a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}

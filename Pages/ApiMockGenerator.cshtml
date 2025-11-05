@@ -1,0 +1,48 @@
+@page
+@model ApiMockGeneratorModel
+@{
+    ViewData["Title"] = "API Mock Generator";
+}
+
+<div class="container-fluid">
+    <h1 class="text-center mb-4">API Mock Generator</h1>
+    
+    <div class="row mb-4">
+        <div class="col-md-6">
+            <label for="swaggerInput" class="form-label"><strong>Swagger/OpenAPI JSON</strong></label>
+            <textarea id="swaggerInput" class="form-control api-textarea" rows="15" placeholder="Paste your Swagger/OpenAPI JSON here..."></textarea>
+            <div class="text-center mt-2">
+                <button type="button" class="btn btn-primary" onclick="generateMockData()">Generate Mock Data</button>
+                <button type="button" class="btn btn-secondary" onclick="generateEndpoints()">Generate Endpoints</button>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <label for="mockOutput" class="form-label"><strong>Generated Mock Data</strong></label>
+            <textarea id="mockOutput" class="form-control api-textarea" rows="15" readonly placeholder="Mock data will appear here..."></textarea>
+            <div class="text-center mt-2">
+                <button type="button" class="btn btn-outline-secondary" onclick="copyMockData()">Copy</button>
+                <button type="button" class="btn btn-warning" onclick="clearApiFields()">Clear</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-12">
+            <h4>Quick Actions</h4>
+            <div class="mb-3">
+                <label for="schemaSelect" class="form-label">Select Schema to Mock:</label>
+                <select id="schemaSelect" class="form-select" onchange="generateSchemaData()">
+                    <option value="">Select a schema...</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="endpointSelect" class="form-label">Select Endpoint to Mock:</label>
+                <select id="endpointSelect" class="form-select" onchange="generateEndpointData()">
+                    <option value="">Select an endpoint...</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    
+    <div id="apiStatus" class="alert mt-3" style="display: none;"></div>
+</div>

@@ -1,0 +1,41 @@
+@page
+@model CodeFormatterModel
+@{
+    ViewData["Title"] = "Code Formatter";
+}
+
+<div class="container-fluid">
+    <h1 class="text-center mb-4">Code Formatter/Beautifier</h1>
+    
+    <div class="row mb-3">
+        <div class="col-md-6">
+            <label for="codeInput" class="form-label"><strong>Input Code</strong></label>
+            <div class="mb-2">
+                <select id="codeType" class="form-select">
+                    <option value="json">JSON</option>
+                    <option value="xml">XML</option>
+                    <option value="html">HTML</option>
+                    <option value="css">CSS</option>
+                    <option value="sql">SQL</option>
+                    <option value="csharp">C#</option>
+                </select>
+            </div>
+            <textarea id="codeInput" class="form-control code-textarea" rows="20" placeholder="Paste your code here..."></textarea>
+        </div>
+        <div class="col-md-6">
+            <label for="codeOutput" class="form-label"><strong>Formatted Code</strong></label>
+            <div class="mb-2">
+                <button type="button" class="btn btn-outline-secondary btn-sm" onclick="copyCode()">Copy</button>
+            </div>
+            <textarea id="codeOutput" class="form-control code-textarea" rows="20" readonly placeholder="Formatted code will appear here..."></textarea>
+        </div>
+    </div>
+    
+    <div class="text-center mb-3">
+        <button type="button" class="btn btn-primary" onclick="formatCode()">Format Code</button>
+        <button type="button" class="btn btn-secondary" onclick="minifyCode()">Minify Code</button>
+        <button type="button" class="btn btn-warning" onclick="clearCodeFields()">Clear All</button>
+    </div>
+    
+    <div id="codeStatus" class="alert" style="display: none;"></div>
+</div>

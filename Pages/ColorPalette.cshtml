@@ -1,0 +1,45 @@
+@page
+@model ColorPaletteModel
+@{
+    ViewData["Title"] = "Color Palette Tool";
+}
+
+<div class="container-fluid">
+    <h1 class="text-center mb-4">Color Palette Tool</h1>
+    
+    <div class="row mb-4">
+        <div class="col-md-6">
+            <h4>Color Picker</h4>
+            <div class="mb-3">
+                <label for="colorPicker" class="form-label">Pick a Color</label>
+                <input type="color" id="colorPicker" class="form-control form-control-color" value="#3498db" onchange="updateColorInfo()">
+            </div>
+            <div class="color-info">
+                <div class="mb-2"><strong>HEX:</strong> <span id="hexValue">#3498db</span> <button class="btn btn-sm btn-outline-secondary" onclick="copyColor('hex')">Copy</button></div>
+                <div class="mb-2"><strong>RGB:</strong> <span id="rgbValue">rgb(52, 152, 219)</span> <button class="btn btn-sm btn-outline-secondary" onclick="copyColor('rgb')">Copy</button></div>
+                <div class="mb-2"><strong>HSL:</strong> <span id="hslValue">hsl(204, 70%, 53%)</span> <button class="btn btn-sm btn-outline-secondary" onclick="copyColor('hsl')">Copy</button></div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <h4>Random Palette Generator</h4>
+            <div class="text-center mb-3">
+                <button type="button" class="btn btn-primary" onclick="generateRandomPalette()">Generate Random Palette</button>
+                <button type="button" class="btn btn-secondary" onclick="generateComplementary()">Complementary Colors</button>
+            </div>
+            <div id="colorPalette" class="color-palette"></div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-12">
+            <h4>Saved Colors</h4>
+            <div class="text-center mb-3">
+                <button type="button" class="btn btn-success" onclick="saveCurrentColor()">Save Current Color</button>
+                <button type="button" class="btn btn-warning" onclick="clearSavedColors()">Clear All</button>
+            </div>
+            <div id="savedColors" class="saved-colors"></div>
+        </div>
+    </div>
+    
+    <div id="colorStatus" class="alert mt-3" style="display: none;"></div>
+</div>

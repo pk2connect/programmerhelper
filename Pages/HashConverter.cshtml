@@ -1,0 +1,54 @@
+@page
+@model HashConverterModel
+@{
+    ViewData["Title"] = "Base64/Hash Converter";
+}
+
+<div class="container-fluid">
+    <h1 class="text-center mb-4">Base64/Hash Converter</h1>
+    
+    <div class="row mb-4">
+        <div class="col-md-6">
+            <h4>Base64 Converter</h4>
+            <label for="base64Input" class="form-label"><strong>Input Text</strong></label>
+            <textarea id="base64Input" class="form-control hash-textarea" rows="8" placeholder="Enter text to encode/decode..."></textarea>
+            <div class="text-center mt-2">
+                <button type="button" class="btn btn-primary btn-sm" onclick="encodeBase64()">Encode</button>
+                <button type="button" class="btn btn-secondary btn-sm" onclick="decodeBase64()">Decode</button>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <h4>Base64 Result</h4>
+            <label for="base64Output" class="form-label"><strong>Output</strong></label>
+            <textarea id="base64Output" class="form-control hash-textarea" rows="8" readonly placeholder="Result will appear here..."></textarea>
+            <div class="text-center mt-2">
+                <button type="button" class="btn btn-outline-secondary btn-sm" onclick="copyBase64()">Copy</button>
+                <button type="button" class="btn btn-warning btn-sm" onclick="clearBase64()">Clear</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-6">
+            <h4>Hash Generator</h4>
+            <label for="hashInput" class="form-label"><strong>Input Text</strong></label>
+            <textarea id="hashInput" class="form-control hash-textarea" rows="6" placeholder="Enter text to hash..."></textarea>
+            <div class="text-center mt-2">
+                <button type="button" class="btn btn-success btn-sm" onclick="generateMD5()">MD5</button>
+                <button type="button" class="btn btn-info btn-sm" onclick="generateSHA1()">SHA-1</button>
+                <button type="button" class="btn btn-primary btn-sm" onclick="generateSHA256()">SHA-256</button>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <h4>Hash Results</h4>
+            <label for="hashOutput" class="form-label"><strong>Generated Hashes</strong></label>
+            <textarea id="hashOutput" class="form-control hash-textarea" rows="6" readonly placeholder="Hash results will appear here..."></textarea>
+            <div class="text-center mt-2">
+                <button type="button" class="btn btn-outline-secondary btn-sm" onclick="copyHash()">Copy</button>
+                <button type="button" class="btn btn-warning btn-sm" onclick="clearHash()">Clear</button>
+            </div>
+        </div>
+    </div>
+    
+    <div id="hashStatus" class="alert mt-3" style="display: none;"></div>
+</div>

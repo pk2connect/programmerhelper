@@ -1,0 +1,34 @@
+@page
+@model UuidGeneratorModel
+@{
+    ViewData["Title"] = "UUID/GUID Generator";
+}
+
+<div class="container-fluid">
+    <h1 class="text-center mb-4">UUID/GUID Generator</h1>
+    
+    <div class="row mb-3">
+        <div class="col-md-8 offset-md-2">
+            <label for="generatedUuid" class="form-label"><strong>Generated UUID/GUID</strong></label>
+            <div class="input-group">
+                <input type="text" id="generatedUuid" class="form-control uuid-input" readonly placeholder="Click generate to create UUID...">
+                <button class="btn btn-outline-secondary" type="button" onclick="copyUuid()">Copy</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="text-center mb-3">
+        <button type="button" class="btn btn-primary" onclick="generateUuid()">Generate UUID</button>
+        <button type="button" class="btn btn-success" onclick="generateMultiple()">Generate 10 UUIDs</button>
+        <button type="button" class="btn btn-warning" onclick="clearUuids()">Clear</button>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <label for="multipleUuids" class="form-label"><strong>Multiple UUIDs</strong></label>
+            <textarea id="multipleUuids" class="form-control uuid-textarea" rows="10" readonly placeholder="Multiple UUIDs will appear here..."></textarea>
+        </div>
+    </div>
+    
+    <div id="uuidStatus" class="alert mt-3" style="display: none;"></div>
+</div>

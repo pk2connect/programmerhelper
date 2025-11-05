@@ -1,0 +1,59 @@
+@page
+@model QrGeneratorModel
+@{
+    ViewData["Title"] = "QR Code Generator";
+}
+
+<div class="container-fluid">
+    <h1 class="text-center mb-4">QR Code Generator</h1>
+    
+    <div class="row mb-4">
+        <div class="col-md-6">
+            <label for="qrText" class="form-label"><strong>Text to Encode</strong></label>
+            <textarea id="qrText" class="form-control qr-textarea" rows="8" placeholder="Enter text, URL, or data to generate QR code..." oninput="generateQR()"></textarea>
+            
+            <div class="row mt-3">
+                <div class="col-md-6">
+                    <label for="qrSize" class="form-label">Size</label>
+                    <select id="qrSize" class="form-select" onchange="generateQR()">
+                        <option value="200">200x200</option>
+                        <option value="300" selected>300x300</option>
+                        <option value="400">400x400</option>
+                        <option value="500">500x500</option>
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <label for="qrColor" class="form-label">Color</label>
+                    <input type="color" id="qrColor" class="form-control form-control-color" value="#000000" onchange="generateQR()">
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-6">
+            <label class="form-label"><strong>Generated QR Code</strong></label>
+            <div id="qrCodeContainer" class="qr-container">
+                <p class="text-muted">Enter text to generate QR code</p>
+            </div>
+            <div class="text-center mt-2">
+                <button type="button" class="btn btn-success" onclick="downloadQR()">Download PNG</button>
+                <button type="button" class="btn btn-outline-secondary" onclick="copyQRLink()">Copy Link</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-12">
+            <h4>Quick Templates</h4>
+            <div class="qr-templates">
+                <button class="btn btn-outline-primary btn-sm" onclick="setTemplate('url')">Website URL</button>
+                <button class="btn btn-outline-primary btn-sm" onclick="setTemplate('email')">Email</button>
+                <button class="btn btn-outline-primary btn-sm" onclick="setTemplate('phone')">Phone</button>
+                <button class="btn btn-outline-primary btn-sm" onclick="setTemplate('sms')">SMS</button>
+                <button class="btn btn-outline-primary btn-sm" onclick="setTemplate('wifi')">WiFi</button>
+                <button class="btn btn-outline-primary btn-sm" onclick="setTemplate('vcard')">Contact Card</button>
+            </div>
+        </div>
+    </div>
+    
+    <div id="qrStatus" class="alert mt-3" style="display: none;"></div>
+</div>

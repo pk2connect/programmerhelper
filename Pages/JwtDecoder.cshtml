@@ -1,0 +1,55 @@
+@page
+@model JwtDecoderModel
+@{
+    ViewData["Title"] = "JWT Decoder";
+}
+
+<div class="container-fluid">
+    <h1 class="text-center mb-4">JWT Token Decoder</h1>
+    
+    <div class="row mb-4">
+        <div class="col-md-6">
+            <label for="jwtInput" class="form-label"><strong>JWT Token</strong></label>
+            <textarea id="jwtInput" class="form-control jwt-textarea" rows="8" placeholder="Paste your JWT token here..." oninput="decodeJWT()"></textarea>
+            <div class="text-center mt-2">
+                <button type="button" class="btn btn-warning" onclick="clearJWT()">Clear</button>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div id="jwtStatus" class="jwt-status mb-3">
+                <span class="badge bg-secondary">No token</span>
+            </div>
+            <div id="jwtInfo" class="jwt-info">
+                <p class="text-muted">Paste a JWT token to see decoded information</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row mb-4">
+        <div class="col-md-6">
+            <h4>Header</h4>
+            <textarea id="headerOutput" class="form-control jwt-textarea" rows="6" readonly placeholder="JWT header will appear here..."></textarea>
+            <div class="text-center mt-2">
+                <button type="button" class="btn btn-outline-secondary btn-sm" onclick="copyHeader()">Copy Header</button>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <h4>Payload</h4>
+            <textarea id="payloadOutput" class="form-control jwt-textarea" rows="6" readonly placeholder="JWT payload will appear here..."></textarea>
+            <div class="text-center mt-2">
+                <button type="button" class="btn btn-outline-secondary btn-sm" onclick="copyPayload()">Copy Payload</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-12">
+            <h4>Token Information</h4>
+            <div id="tokenDetails" class="token-details">
+                <p class="text-muted">Token details will appear here after decoding</p>
+            </div>
+        </div>
+    </div>
+    
+    <div id="jwtAlert" class="alert mt-3" style="display: none;"></div>
+</div>

@@ -1,0 +1,68 @@
+@page
+@model DependencyGraphModel
+@{
+    ViewData["Title"] = "Dependency Graph";
+}
+
+<div class="container-fluid">
+    <h1 class="text-center mb-4">Dependency Graph Visualizer</h1>
+    
+    <div class="row mb-4">
+        <div class="col-md-4">
+            <label for="dependencyInput" class="form-label"><strong>Dependencies (JSON)</strong></label>
+            <textarea id="dependencyInput" class="form-control dependency-textarea" rows="15" placeholder="Enter dependency data as JSON..." oninput="generateGraph()"></textarea>
+            <div class="text-center mt-2">
+                <button type="button" class="btn btn-outline-primary btn-sm" onclick="loadSample()">Load Sample</button>
+                <button type="button" class="btn btn-outline-secondary btn-sm" onclick="clearGraph()">Clear</button>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <label class="form-label"><strong>Dependency Graph</strong></label>
+            <div id="graphContainer" class="graph-container">
+                <p class="text-muted">Enter dependency data to visualize the graph</p>
+            </div>
+            <div class="text-center mt-2">
+                <button type="button" class="btn btn-success btn-sm" onclick="exportSVG()">Export SVG</button>
+                <button type="button" class="btn btn-outline-info btn-sm" onclick="resetZoom()">Reset Zoom</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-12">
+            <h4>Graph Statistics</h4>
+            <div id="graphStats" class="graph-stats">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="stat-item">
+                            <label>Nodes:</label>
+                            <span id="nodeCount">0</span>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="stat-item">
+                            <label>Edges:</label>
+                            <span id="edgeCount">0</span>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="stat-item">
+                            <label>Cycles:</label>
+                            <span id="cycleCount">0</span>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="stat-item">
+                            <label>Max Depth:</label>
+                            <span id="maxDepth">0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="dependencyStatus" class="alert mt-3" style="display: none;"></div>
+</div>
+
+<script src="https://d3js.org/d3.v7.min.js"></script>

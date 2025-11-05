@@ -1,0 +1,94 @@
+@page
+@model DateTimeConverterModel
+@{
+    ViewData["Title"] = "DateTime Converter";
+}
+
+<div class="container-fluid">
+    <h1 class="text-center mb-4">Date Time Converter</h1>
+    
+    <div class="row mb-4">
+        <div class="col-md-6">
+            <h4>Current Time</h4>
+            <div class="current-time-panel">
+                <div class="time-display">
+                    <div class="time-item">
+                        <label>Local Time:</label>
+                        <span id="currentLocal" class="time-value">--</span>
+                    </div>
+                    <div class="time-item">
+                        <label>UTC Time:</label>
+                        <span id="currentUtc" class="time-value">--</span>
+                    </div>
+                    <div class="time-item">
+                        <label>Unix Timestamp:</label>
+                        <span id="currentUnix" class="time-value">--</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <h4>Timestamp Converter</h4>
+            <label for="timestampInput" class="form-label">Unix Timestamp</label>
+            <div class="input-group mb-3">
+                <input type="number" id="timestampInput" class="form-control" placeholder="Enter Unix timestamp..." oninput="convertFromTimestamp()">
+                <button class="btn btn-outline-secondary" onclick="setCurrentTimestamp()">Now</button>
+            </div>
+            <div id="timestampResults" class="conversion-results">
+                <p class="text-muted">Enter a Unix timestamp to convert</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row mb-4">
+        <div class="col-md-6">
+            <h4>Date to Timestamp</h4>
+            <div class="mb-3">
+                <label for="dateInput" class="form-label">Date</label>
+                <input type="date" id="dateInput" class="form-control" onchange="convertToTimestamp()">
+            </div>
+            <div class="mb-3">
+                <label for="timeInput" class="form-label">Time</label>
+                <input type="time" id="timeInput" class="form-control" onchange="convertToTimestamp()">
+            </div>
+            <div class="mb-3">
+                <label for="timezoneSelect" class="form-label">Timezone</label>
+                <select id="timezoneSelect" class="form-select" onchange="convertToTimestamp()">
+                    <option value="local">Local Time</option>
+                    <option value="utc">UTC</option>
+                </select>
+            </div>
+            <div id="dateResults" class="conversion-results">
+                <p class="text-muted">Select date and time to convert</p>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <h4>ISO String Converter</h4>
+            <label for="isoInput" class="form-label">ISO Date String</label>
+            <textarea id="isoInput" class="form-control datetime-textarea" rows="4" placeholder="Enter ISO date string..." oninput="convertFromISO()"></textarea>
+            <div class="text-center mt-2">
+                <button class="btn btn-outline-primary btn-sm" onclick="setCurrentISO()">Current ISO</button>
+                <button class="btn btn-outline-secondary btn-sm" onclick="copyISO()">Copy</button>
+            </div>
+            <div id="isoResults" class="conversion-results mt-3">
+                <p class="text-muted">Enter an ISO date string to convert</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-12">
+            <h4>Quick Actions</h4>
+            <div class="quick-actions">
+                <button class="btn btn-outline-primary btn-sm" onclick="addDays(1)">+1 Day</button>
+                <button class="btn btn-outline-primary btn-sm" onclick="addDays(7)">+1 Week</button>
+                <button class="btn btn-outline-primary btn-sm" onclick="addDays(30)">+1 Month</button>
+                <button class="btn btn-outline-primary btn-sm" onclick="addDays(-1)">-1 Day</button>
+                <button class="btn btn-outline-primary btn-sm" onclick="addDays(-7)">-1 Week</button>
+                <button class="btn btn-outline-primary btn-sm" onclick="addDays(-30)">-1 Month</button>
+            </div>
+        </div>
+    </div>
+    
+    <div id="datetimeStatus" class="alert mt-3" style="display: none;"></div>
+</div>
